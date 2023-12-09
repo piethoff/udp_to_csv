@@ -230,6 +230,7 @@ fn writer(rx: Receiver<Vec<u8>>, options: Cli) {
 
                 // csv_string.replace_range((csv_string.len()-1)..csv_string.len(), "\n");
                 let _ = csv_string.pop();
+                csv_string.push('\n');
 
                 match &options.output {
                     None => {
@@ -258,7 +259,7 @@ fn output_csv(csv_string: &str, output: &PathBuf) {
         .open(output)
         .unwrap();
 
-    if let Err(e) = writeln!(file, "{csv_string}") {
+    if let Err(e) = write!(file, "{csv_string}") {
         eprintln!("Couldn't write to file: {}", e);
     }
 }
