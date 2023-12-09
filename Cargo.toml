@@ -1,0 +1,13 @@
+[package]
+name = "udp_to_csv"
+version = "0.1.0"
+authors = ["Piet Hoffmann"]
+description = "Receives UDP-messages and outputs it as csv either to stdout or to file."
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+byteorder = "1.5.0"
+clap = { version = "4.4.11", features = ["derive"] }
+local-ip-address = "0.5.6"
